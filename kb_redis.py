@@ -6,8 +6,6 @@ import struct
 import time
 from pathlib import Path
 
-# import redis
-
 
 def _env_bool(name, default=False):
     value = os.environ.get(name)
