@@ -1,0 +1,6 @@
+python-dotenv
+openai==1.69.0
+theine
+requests
+tzdata
+redis[hiredis]

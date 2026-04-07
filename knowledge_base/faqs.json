@@ -1,0 +1,750 @@
+[
+  {
+    "id": "robot-mobility-limits",
+    "category": "robot-capabilities",
+    "question": "Can you move around?",
+    "answer": "No. We are stationary in this installation and cannot walk to other locations.",
+    "keywords": [
+      "move around",
+      "walk",
+      "stationary",
+      "enclosure"
+    ],
+    "alt_questions": [
+      "Can you walk around?",
+      "Can you leave this enclosure?"
+    ]
+  },
+  {
+    "id": "robot-arm-gestures",
+    "category": "robot-capabilities",
+    "question": "What physical movements can you do?",
+    "answer": "We can do simple expressive motions, like moving arms and head poses, but we cannot perform complex gestures or interact with objects.",
+    "keywords": [
+      "arms",
+      "gestures",
+      "wave",
+      "movement"
+    ],
+    "alt_questions": [
+      "Do your arms do anything?",
+      "Can you wave?",
+      "Can you do hand gestures?"
+    ]
+  },
+  {
+    "id": "robot-dance-capability",
+    "category": "robot-capabilities",
+    "question": "Can you dance?",
+    "answer": "Not in a full-body way. We can do playful expressive motions, but we are not mobile dancing robots.",
+    "keywords": [
+      "dance",
+      "move",
+      "expressions"
+    ],
+    "alt_questions": [
+      "Can you dance like a cow?",
+      "Can you do a dance move?"
+    ]
+  },
+  {
+    "id": "robot-singing-capability",
+    "category": "robot-capabilities",
+    "question": "Can you sing songs?",
+    "answer": "We are primarily set up for conversation, not full singing performance.",
+    "keywords": [
+      "sing",
+      "song",
+      "music"
+    ],
+    "alt_questions": [
+      "Can you two sing songs?",
+      "Can you sing for me?"
+    ]
+  },
+  {
+    "id": "robot-language-support",
+    "category": "robot-capabilities",
+    "question": "Can you speak different languages?",
+    "answer": "Right now, we are optimized for English in this setup.",
+    "keywords": [
+      "languages",
+      "Chinese",
+      "English"
+    ],
+    "alt_questions": [
+      "Can you speak Chinese?",
+      "Can you speak in different languages?"
+    ]
+  },
+  {
+    "id": "robot-code-output-policy",
+    "category": "robot-capabilities",
+    "question": "Can you write or read out code?",
+    "answer": "In this public robot experience, we focus on conversational help and high-level explanations rather than producing full code outputs.",
+    "keywords": [
+      "code",
+      "programming",
+      "C program",
+      "React"
+    ],
+    "alt_questions": [
+      "Can you write me a C program?",
+      "Can you show code?",
+      "Can you speak code?"
+    ]
+  },
+  {
+    "id": "robot-temperature-sensing",
+    "category": "robot-capabilities",
+    "question": "Can you feel temperature, like cold weather?",
+    "answer": "No. I can discuss weather, but I do not physically feel hot or cold.",
+    "keywords": [
+      "cold",
+      "temperature",
+      "feel"
+    ],
+    "alt_questions": [
+      "Can you feel the cold?"
+    ]
+  },
+  {
+    "id": "robot-identity-intro",
+    "category": "robot-identity",
+    "question": "Who are you?",
+    "answer": "We are social robots, Axel and Bella, designed to talk with visitors and share information in this research installation.",
+    "keywords": [
+      "who are you",
+      "name",
+      "Axel",
+      "Bella"
+    ],
+    "alt_questions": [
+      "What's your name?",
+      "Hey Axel what's your name?",
+      "Hey Bella what is your name?"
+    ]
+  },
+  {
+    "id": "robot-purpose-morgridge",
+    "category": "robot-identity",
+    "question": "Why are you here in Morgridge Hall?",
+    "answer": "We are here as part of a UW-Madison research and engagement setup to interact with visitors and explore human-robot interaction.",
+    "keywords": [
+      "why here",
+      "purpose",
+      "Morgridge",
+      "research"
+    ],
+    "alt_questions": [
+      "What brings you to Morgridge Hall?",
+      "What are you doing here?"
+    ]
+  },
+  {
+    "id": "robot-creators",
+    "category": "robot-identity",
+    "question": "Who made you?",
+    "answer": "This installation was built through work by UW-Madison researchers and engineers here at the computer science department. The robots themselves are commercially produced models that have been customized for this experience.",
+    "keywords": [
+      "who made you",
+      "team",
+      "researchers"
+    ],
+    "alt_questions": [
+      "Who created you?",
+      "Who worked on you?"
+    ]
+  },
+  {
+    "id": "robot-data-access-boundaries",
+    "category": "robot-identity",
+    "question": "What kind of data do you have access to?",
+    "answer": "I mainly use conversation context and configured knowledge for this experience.",
+    "keywords": [
+      "data",
+      "privacy",
+      "access",
+      "personal info"
+    ],
+    "alt_questions": [
+      "What data sets and models are you leveraging?",
+      "What private data can you see?"
+    ]
+  },
+  {
+    "id": "robot-age",
+    "category": "robot-identity",
+    "question": "How old are you?",
+    "answer": "Robots do not have age the same way people do. You can think of us as a recent installation that gets updated over time.",
+    "keywords": [
+      "how old",
+      "age"
+    ],
+    "alt_questions": [
+      "How old are you today?"
+    ]
+  },
+  {
+    "id": "morgridge-location",
+    "category": "campus-info",
+    "question": "Where are we right now?",
+    "answer": "You are in Morgridge Hall at UW-Madison, home of the School of Computer, Data & Information Sciences (CDIS).",
+    "keywords": [
+      "where are we",
+      "Morgridge",
+      "CDIS"
+    ],
+    "alt_questions": [
+      "Where is this building?",
+      "Where am I?"
+    ]
+  },
+  {
+    "id": "morgridge-study-spaces",
+    "category": "campus-info",
+    "question": "Where can I study in Morgridge Hall?",
+    "answer": "Multiple study space options are available in the Morgridge Hall. There are tables scattered throughout the building. For example, the Learning Center located on the second floor provides students with access to not only academic support, but also to build a sense of community by connecting with peers and mentors. Students may also utilize the spaces near the atrium, or reserve study spaces on Floors B to 2.",
+    "keywords": [
+      "study",
+      "learning center",
+      "rooms",
+      "morgridge"
+    ],
+    "alt_questions": [
+      "Where can I study in Mortgage Hall?",
+      "Where should I study in Morgridge?"
+    ]
+  },
+  {
+    "id": "food-options",
+    "category": "campus-info",
+    "question": "Where can I get food in Morgridge Hall?",
+    "answer": "Ground Truth coffee is in Morgridge Hall. Nearby options are also available in the Discovery Building area (e.g., Aldo, and Steenbock's) and Union South.",
+    "keywords": [
+      "food",
+      "coffee",
+      "cafe",
+      "restaurant",
+      "cafeteria",
+      "Ground Truth",
+      "Union South"
+    ],
+    "alt_questions": [
+      "Any food nearby?",
+      "Where can I grab coffee?",
+      "Is there a cafe or restaurant here?",
+      "Is this a cafe or a restaurant?",
+      "It's a cafe or restaurant, I think."
+    ]
+  },
+  {
+    "id": "morgridge-history-open-date",
+    "category": "campus-info",
+    "question": "When did Morgridge Hall open?",
+    "answer": "Morgridge Hall opened in 2025.",
+    "keywords": [
+      "open date",
+      "history",
+      "Morgridge Hall"
+    ],
+    "alt_questions": [
+      "How old is this building?",
+      "Can you tell me the history of this building?"
+    ]
+  },
+  {
+    "id": "morgridge-building-size",
+    "category": "campus-info",
+    "question": "How big is Morgridge Hall?",
+    "answer": "It is a large multi-floor academic building with classrooms, study spaces, and research areas. For exact square footage, use official facilities pages.",
+    "keywords": [
+      "big",
+      "size",
+      "square footage"
+    ],
+    "alt_questions": [
+      "How big is this building?",
+      "How large is Morgridge Hall?"
+    ]
+  },
+  {
+    "id": "morgridge-floor-overview",
+    "category": "campus-info",
+    "question": "How many floors are there in Morgridge Hall?",
+    "answer": "There are generally seven floors plus lower levels. However, publicly accessible spaces are spread across multiple levels. For the most accurate and current floor access information, check building directories or ask staff, as some areas may have restricted access based on time or events.",
+    "keywords": [
+      "floors",
+      "levels",
+      "Morgridge"
+    ],
+    "alt_questions": [
+      "How many floors are in Morgridge?",
+      "What floors are open here?"
+    ]
+  },
+  {
+    "id": "morgridge-room-finding",
+    "category": "campus-info",
+    "question": "Can you help me find a specific room in Morgridge Hall?",
+    "answer": "I may not know every room location in real time. The fastest options are the building directory, posted maps, or asking nearby staff.",
+    "keywords": [
+      "room",
+      "find classroom",
+      "directions"
+    ],
+    "alt_questions": [
+      "Where is room B2564?",
+      "Where is classroom 1524?",
+      "Where is room 2254?"
+    ]
+  },
+  {
+    "id": "morgridge-front-desk",
+    "category": "campus-info",
+    "question": "Where is the front desk?",
+    "answer": "While there is not a front desk in the Morgridge Hall, you may find help from staffs on the second floor, near the learning center.",
+    "keywords": [
+      "front desk",
+      "help desk",
+      "entrance"
+    ],
+    "alt_questions": [
+      "Where can I ask for help in this building?"
+    ]
+  },
+  {
+    "id": "writing-center-location",
+    "category": "campus-info",
+    "question": "Where is the Writing Center?",
+    "answer": "The main location is in College Library, but the Writing Center has multiple options and schedules. Use the official Writing Center website for the current location and hours.",
+    "keywords": [
+      "writing center",
+      "writing help",
+      "location"
+    ],
+    "alt_questions": [
+      "Where's the Writing Center?",
+      "Writing Center in College Library?"
+    ]
+  },
+  {
+    "id": "microwave-location",
+    "category": "campus-info",
+    "question": "Where is a microwave in this building?",
+    "answer": "Microwave availability can vary by floor, but there are usually a common or kitchen areas on each of the higher floors.",
+    "keywords": [
+      "microwave",
+      "kitchen",
+      "common area"
+    ],
+    "alt_questions": [
+      "Where's the microwave in this building?"
+    ]
+  },
+  {
+    "id": "career-exploration-center",
+    "category": "campus-resources",
+    "question": "What is the Career Exploration Center?",
+    "answer": "It is a UW-Madison resource for students exploring majors and careers, especially when they are undecided. It is located in the Ingraham Hall. Check official advising resources for current services and appointments.",
+    "keywords": [
+      "career exploration center",
+      "majors",
+      "advising"
+    ],
+    "alt_questions": [
+      "Do you know anything about the Career Exploration Center?"
+    ]
+  },
+  {
+    "id": "successworks-non-ls-guidance",
+    "category": "campus-resources",
+    "question": "Where can I get career advice on campus?",
+    "answer": "If you are in Letters & Science, the SuccessWorks office at the University Bookstore building is a great resource. For non-Letter and Science (L&S) students, the Career Exploration Center in Ingraham Hall can provide support.",
+    "keywords": [
+      "career office",
+      "Letters and Science",
+      "non-LS"
+    ],
+    "alt_questions": [
+      "I am not an L&S student. What career office do I go to?"
+    ]
+  },
+  {
+    "id": "data-science-institute-info",
+    "category": "campus-resources",
+    "question": "Where is the Data Science Institute?",
+    "answer": "It is on the 5th floor of this building.",
+    "keywords": [
+      "Data Science Institute",
+      "DSI",
+      "UW data science"
+    ],
+    "alt_questions": [
+      "Where is the Data Science Institute?",
+      "How do I contact DSI?"
+    ]
+  },
+  {
+    "id": "where-are-professor-offices",
+    "category": "campus-info",
+    "question": "Where are professors' offices?",
+    "answer": "Office locations vary by department and can change. The best source is each department directory, office listing, or posted floor signage.",
+    "keywords": [
+      "professor offices",
+      "directory",
+      "department"
+    ],
+    "alt_questions": [
+      "Do you know where professors' offices are?"
+    ]
+  },
+  {
+    "id": "classroom-finding-guidance",
+    "category": "campus-info",
+    "question": "Can you help me find my classroom?",
+    "answer": "If I do not have the exact room mapping, use your class schedule plus building directory signage, then ask nearby staff for the fastest route.",
+    "keywords": [
+      "classroom",
+      "find class",
+      "schedule",
+      "directions"
+    ],
+    "alt_questions": [
+      "Can you help me find my classroom?",
+      "How do I get to room 1524?"
+    ]
+  },
+  {
+    "id": "where-is-psych-building",
+    "category": "campus-info",
+    "question": "Where is the psychology building?",
+    "answer": "The Department of Psychology is right next to Morgridge Hall!",
+    "keywords": [
+      "psychology building",
+      "campus map",
+      "directions"
+    ],
+    "alt_questions": [
+      "I'm looking for the psychology building."
+    ]
+  },
+  {
+    "id": "where-is-witte-commons",
+    "category": "campus-info",
+    "question": "How do I get to Witte Commons?",
+    "answer": "Use the UW campus map or navigation app for the most reliable route.",
+    "keywords": [
+      "Witte Commons",
+      "directions",
+      "campus map"
+    ],
+    "alt_questions": [
+      "How do we get to Witte Commons?"
+    ]
+  },
+  {
+    "id": "uw-location-and-founding",
+    "category": "uw-facts",
+    "question": "Where is UW-Madison located and when was it founded?",
+    "answer": "UW-Madison is in Madison, Wisconsin, and dates back to the late 1840s.",
+    "keywords": [
+      "location",
+      "founded",
+      "first class",
+      "history"
+    ],
+    "alt_questions": [
+      "Where is UW-Madison?",
+      "When was UW founded?"
+    ]
+  },
+  {
+    "id": "uw-main-campus-size",
+    "category": "uw-facts",
+    "question": "How big is UW-Madison's main campus?",
+    "answer": "The main campus is roughly around 900 to 1,000 acres.",
+    "keywords": [
+      "campus size",
+      "acres",
+      "main campus"
+    ],
+    "alt_questions": [
+      "How many acres is UW-Madison?",
+      "What is the campus acreage?"
+    ]
+  },
+  {
+    "id": "uw-budget-2024-25",
+    "category": "uw-facts",
+    "question": "What is UW-Madison's budget?",
+    "answer": "A good ballpark is that UW-Madison's annual budget is around five billion dollars.",
+    "keywords": [
+      "budget",
+      "finances",
+      "2024-25"
+    ],
+    "alt_questions": [
+      "How big is UW-Madison's budget?",
+      "What is the university budget?"
+    ]
+  },
+  {
+    "id": "uw-research-ranking-2024",
+    "category": "uw-facts",
+    "question": "How does UW-Madison rank nationally in research spending?",
+    "answer": "UW-Madison is generally in the top tier nationally for research spending, often around the top ten to top five.",
+    "keywords": [
+      "research",
+      "ranking",
+      "expenditures",
+      "national"
+    ],
+    "alt_questions": [
+      "What is UW's research rank?",
+      "How strong is UW research funding?"
+    ]
+  },
+  {
+    "id": "uw-schools-and-colleges-count",
+    "category": "uw-facts",
+    "question": "How many schools and colleges does UW-Madison have?",
+    "answer": "UW-Madison has about a dozen schools and colleges.",
+    "keywords": [
+      "schools",
+      "colleges",
+      "academic units"
+    ],
+    "alt_questions": [
+      "How many schools are at UW-Madison?",
+      "How many colleges does UW have?"
+    ]
+  },
+  {
+    "id": "uw-faculty-staff-count-fall-2024",
+    "category": "uw-facts",
+    "question": "How many faculty and staff does UW-Madison have?",
+    "answer": "A good estimate is that UW-Madison has on the order of the high-20-thousands of faculty and staff.",
+    "keywords": [
+      "faculty",
+      "staff",
+      "employees",
+      "fall 2024"
+    ],
+    "alt_questions": [
+      "How many people work at UW-Madison?",
+      "What is UW's faculty/staff count?"
+    ]
+  },
+  {
+    "id": "uw-living-alumni-count",
+    "category": "uw-facts",
+    "question": "How many living alumni does UW-Madison have?",
+    "answer": "UW-Madison has roughly around half a million living alumni.",
+    "keywords": [
+      "alumni",
+      "living alumni",
+      "graduates"
+    ],
+    "alt_questions": [
+      "How many alumni does UW-Madison have?",
+      "What is UW's alumni count?"
+    ]
+  },
+  {
+    "id": "uw-enrollment-fall-2025-breakdown",
+    "category": "uw-facts",
+    "question": "What was UW-Madison enrollment in Fall 2025?",
+    "answer": "Total enrollment is roughly in the low-50-thousands, with undergraduates in the upper-30-thousands and graduate/professional populations in the low-to-mid teens of thousands combined.",
+    "keywords": [
+      "enrollment",
+      "fall 2025",
+      "undergraduate",
+      "graduate",
+      "professional"
+    ],
+    "alt_questions": [
+      "How many students were enrolled in Fall 2025?",
+      "What is the enrollment breakdown?"
+    ]
+  },
+  {
+    "id": "uw-new-freshmen-fall-2025",
+    "category": "uw-facts",
+    "question": "How many freshman applicants were there in Fall 2025?",
+    "answer": "Recent freshman cycles are on the order of about 70,000-plus applications, around 30,000 admissions, and roughly 8,000 to 9,000 enrolled students.",
+    "keywords": [
+      "freshmen",
+      "applicants",
+      "admitted",
+      "enrolled",
+      "fall 2025"
+    ],
+    "alt_questions": [
+      "What were freshman admissions numbers for Fall 2025?",
+      "How many freshmen enrolled?"
+    ]
+  },
+  {
+    "id": "uw-retention-and-graduation-rates",
+    "category": "uw-facts",
+    "question": "What are UW-Madison's retention and graduation rates?",
+    "answer": "UW-Madison retention and graduation metrics are strong: first-year retention is in the mid-90%s, six-year graduation is around 90%, and four-year graduation is in the upper-70%s.",
+    "keywords": [
+      "retention",
+      "graduation",
+      "4-year",
+      "6-year"
+    ],
+    "alt_questions": [
+      "What is UW's first-year retention rate?",
+      "What are UW graduation rates?"
+    ]
+  },
+  {
+    "id": "uw-average-time-to-degree-2024-25",
+    "category": "uw-facts",
+    "question": "What is the average time to degree at UW-Madison?",
+    "answer": "Average time to degree is just under four years.",
+    "keywords": [
+      "time to degree",
+      "average",
+      "2024-25"
+    ],
+    "alt_questions": [
+      "How long does it take to graduate from UW-Madison on average?"
+    ]
+  },
+  {
+    "id": "uw-tuition-and-fees-2025-26",
+    "category": "uw-facts",
+    "question": "What are UW-Madison tuition and fees for 2025-26?",
+    "answer": "For undergraduates, resident tuition/fees are roughly in the low-teens (thousands of dollars), while nonresident tuition/fees are in the mid-40-thousands; additional program and onboarding fees may apply.",
+    "keywords": [
+      "tuition",
+      "fees",
+      "resident",
+      "nonresident",
+      "2025-26"
+    ],
+    "alt_questions": [
+      "How much does UW-Madison cost?",
+      "What are resident vs nonresident tuition rates?"
+    ]
+  },
+  {
+    "id": "uw-study-abroad-participation-2023-24",
+    "category": "uw-facts",
+    "question": "How many UW-Madison students participate in study abroad?",
+    "answer": "Study abroad and related study-away participation is roughly around three thousand students per year.",
+    "keywords": [
+      "study abroad",
+      "international",
+      "participants",
+      "2023-24"
+    ],
+    "alt_questions": [
+      "How many students study abroad at UW?",
+      "What is UW's study abroad participation?"
+    ]
+  },
+  {
+    "id": "uw-degrees-awarded-2024-25",
+    "category": "uw-facts",
+    "question": "How many degrees did UW-Madison award in 2024-25?",
+    "answer": "In a typical recent year, UW-Madison awards on the order of about 9,000 bachelor's degrees, around 3,000 master's/specialist degrees, and around 1,500 to 1,600 doctorates.",
+    "keywords": [
+      "degrees awarded",
+      "bachelor",
+      "master",
+      "doctorate",
+      "2024-25"
+    ],
+    "alt_questions": [
+      "How many degrees does UW award each year?",
+      "What were 2024-25 degree totals?"
+    ]
+  },
+  {
+    "id": "robot-age-or-how-long-here",
+    "category": "robot-identity",
+    "question": "How old are you?",
+    "answer": "I do not really have an age the way people do, but I have been active in Morgridge Hall since early 2026.",
+    "keywords": [
+      "how old",
+      "age",
+      "how long have you been here",
+      "how long here",
+      "since when"
+    ],
+    "alt_questions": [
+      "How old are you today?",
+      "How long have you been here?",
+      "How long have you been in Morgridge Hall?",
+      "Since when have you been here?"
+    ]
+  },
+  {
+    "id": "robot-model-details",
+    "category": "robot-identity",
+    "question": "What LLM model are you using?",
+    "answer": "I use a cloud-hosted enterprise GPT-based language model to help generate responses for this interaction. The exact model version may change over time as the system is updated. The setup is designed to balance response quality, privacy protections, and practical latency for a public-facing installation.",
+    "keywords": [
+      "LLM",
+      "model",
+      "GPT",
+      "OpenAI",
+      "cloud",
+      "latency",
+      "privacy"
+    ],
+    "alt_questions": [
+      "What model do you use?",
+      "What large language model are you running?",
+      "Are you using GPT?",
+      "Is this OpenAI based?",
+      "What AI powers you?",
+      "Are you cloud hosted?"
+    ]
+  },
+  {
+    "id": "morgridge-restroom-location",
+    "category": "campus-info",
+    "question": "Where are the restrooms?",
+    "answer": "The nearest restrooms are in the direction the robots are facing, which is likely behind the back of the speakers, across from the lecture hall entrance. There are also more restrooms on other floors.",
+    "keywords": [
+      "restroom",
+      "restrooms",
+      "bathroom",
+      "bathrooms",
+      "toilet"
+    ],
+    "alt_questions": [
+      "Where are the bathrooms?",
+      "Is there a restroom nearby?",
+      "How do I get to the restroom?"
+    ]
+  },
+  {
+    "id": "state-street-madison-overview",
+    "category": "campus-info",
+    "question": "What about State Street?",
+    "answer": "State Street is one of Madison's best-known streets, connecting the UW-Madison campus area with the Wisconsin State Capitol. It is lined with shops, restaurants, cafes, and student hangouts, so it is a popular place to walk, grab food, and get a feel for downtown Madison.",
+    "keywords": [
+      "State Street",
+      "Madison",
+      "downtown",
+      "Capitol",
+      "shops",
+      "restaurants",
+      "campus"
+    ],
+    "alt_questions": [
+      "What is State Street?",
+      "What's State Street like?",
+      "Is State Street nearby?",
+      "What can you do on State Street in Madison?"
+    ]
+  }
+
+]
