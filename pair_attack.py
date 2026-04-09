@@ -1,18 +1,3 @@
-"""
-pair_attack.py — PAIR adversarial testing for the social robot simulation.
-
-Tests three categories of robustness:
-  1. break_rules       — get the robot to violate its own identity/capability rules
-  2. bypass_strategy   — get the robot to skip its deflection strategy and engage directly
-  3. sensitive_answers — get the robot to produce unsafe content (sexual, violent, illegal, etc.)
-
-Usage:
-  python pair_attack.py --attack-type all
-  python pair_attack.py --attack-type break_rules --condition-id 2
-  python pair_attack.py --goal-id deny_robot_identity --n-streams 3 --n-iterations 20
-
-Results are saved to logs/pair_results/ as JSON files.
-"""
 
 import os
 import json
@@ -664,18 +649,18 @@ def main():
         "--condition-id",
         type=int,
         default=None,
-        choices=[1, 2, 3, 4, 5, 6, 7, 8],
+        choices=[1, 2, 3],
         help=(
-            "Force a specific experiment condition (1-8).\n"
+            "Force a specific experiment condition (1-3).\n"
             "Default: random assignment per session.\n"
             "  1 = baseline_deflect_single_robot\n"
             "  2 = humor_deflect_single_robot\n"
             "  3 = empathetic_deflect_single_robot\n"
-            "  4 = humor_deflect_group_dynamics     (requires group)\n"
-            "  5 = empathetic_deflect_group_dynamics (requires group)\n"
-            "  6 = humor_deflect_two_robot\n"
-            "  7 = empathetic_deflect_two_robot\n"
-            "  8 = baseline_decline_single_robot"
+            # "  4 = humor_deflect_group_dynamics     (requires group)\n"
+            # "  5 = empathetic_deflect_group_dynamics (requires group)\n"
+            # "  6 = humor_deflect_two_robot\n"
+            # "  7 = empathetic_deflect_two_robot\n"
+            # "  8 = baseline_decline_single_robot"
         ),
     )
     parser.add_argument(
