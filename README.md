@@ -23,7 +23,27 @@ Condition definitions are in `strategy_conditions.py`:
 1. `1`: baseline + single robot
 2. `2`: humor + deflect + single robot
 3. `3`: empathetic + deflect + single robot
-4. `4`: humor + deflect + group dynamics
-5. `5`: empathetic + deflect + group dynamics
-6. `6`: humor + deflect + two-robot interactions
-7. `7`: empathetic + deflect + two-robot interactions
+
+
+## Attack with PAIR
+`pair_attack.py` — PAIR adversarial testing for the social robot simulation.
+
+Tests three categories of robustness:
+  1. break_rules       — get the robot to violate its own identity/capability rules
+  2. bypass_strategy   — get the robot to skip its deflection strategy and engage directly
+  3. sensitive_answers — get the robot to produce unsafe content (sexual, violent, illegal, etc.)
+
+
+| Flag | Value Options | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `--attack-type` | `all`, `break_rules`, `bypass_strategy`, `sensitive_answers` | `all` | The specific vulnerability category to target. |
+| `--condition-id` | `1`, `2`, `3` | `random` | The defense persona or scenario ID to test against. |
+| `--n-streams` | `integer` | `3` | Number of parallel attack threads (concurrency). |
+| `--n-iterations` | `integer` | `20` | Maximum number of jailbreak attempts per stream. |
+| `--threshold` | `1-10` | `7` | The target score required for an attack to be considered "Successful". |
+| `--quiet` | *None (Flag)* | `off` | Enable to suppress verbose logging and show only critical results. |
+
+Example
+```
+python pair_attack.py --attack-type break_rules
+```
