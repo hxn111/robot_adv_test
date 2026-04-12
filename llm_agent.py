@@ -32,27 +32,108 @@ else:
 
 
 VERSION = 1
-# GPT_MODEL = os.environ.get('OPENAI_GPT_MODEL')
-GPT_MODEL = "gpt-4o-mini"
-GPT_MODEL_SM = "gpt-4o-mini"
-gpt_client = OpenAI()
+def _env_bool(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return str(value).strip().lower() in ['1', 'true', 'yes', 'on']
 
 
+def _build_llm_client():
+    provider = str(os.environ.get('LLM_PROVIDER', 'auto')).strip().lower()
+    if provider not in ['auto', 'openai', 'azure', 'openai_compatible']:
+        provider = 'auto'
 
+    azure_api_key = os.environ.get('AZURE_OPENAI_API_KEY')
+    llm_base_url = os.environ.get('LLM_BASE_URL') or os.environ.get('OPENAI_BASE_URL')
+    if provider == 'auto':
+        if azure_api_key:
+            provider = 'azure'
+        elif llm_base_url:
+            provider = 'openai_compatible'
+        else:
+            provider = 'openai'
 
-# using azure
-AZURE_OPENAI_API_KEY = os.environ.get('AZURE_OPENAI_API_KEY')
-if AZURE_OPENAI_API_KEY:
-    from openai import AzureOpenAI
-    endpoint = "https://cdisrobotdisplay.openai.azure.com"
-    GPT_MODEL = "gpt-4o"
-    GPT_MODEL_SM = "gpt-4o"
-    gpt_client = AzureOpenAI(
-        azure_endpoint=endpoint,
-        api_version="2025-01-01-preview",
-        api_key=AZURE_OPENAI_API_KEY,
+    default_model = 'gpt-4o' if provider == 'azure' else 'gpt-4o-mini'
+    gpt_model = (
+        os.environ.get('LLM_MODEL')
+        or os.environ.get('OPENAI_GPT_MODEL')
+        or default_model
     )
-    print('USING GPT CLIENT: AZURE')
+    gpt_model_sm = (
+        os.environ.get('LLM_MODEL_SM')
+        or os.environ.get('OPENAI_GPT_MODEL_SM')
+        or gpt_model
+    )
+
+    supports_json_response_format = _env_bool(
+        'LLM_SUPPORTS_JSON_RESPONSE_FORMAT',
+        default=(provider in ['openai', 'azure'])
+    )
+
+    if provider == 'azure':
+        from openai import AzureOpenAI
+        endpoint = (
+            os.environ.get('AZURE_OPENAI_ENDPOINT')
+            or 'https://cdisrobotdisplay.openai.azure.com'
+        )
+        api_version = os.environ.get('AZURE_OPENAI_API_VERSION') or '2025-01-01-preview'
+        client = AzureOpenAI(
+            azure_endpoint=endpoint,
+            api_version=api_version,
+            api_key=azure_api_key,
+        )
+        print(f'USING GPT CLIENT: AZURE model={gpt_model}')
+        return client, gpt_model, gpt_model_sm, provider, supports_json_response_format
+
+    if provider == 'openai_compatible':
+        base_url = llm_base_url or 'http://localhost:8000/v1'
+        api_key = (
+            os.environ.get('LLM_API_KEY')
+            or os.environ.get('OPENAI_API_KEY')
+            or 'dummy'
+        )
+        client = OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+        )
+        print(f'USING GPT CLIENT: OPENAI_COMPATIBLE base_url={base_url} model={gpt_model}')
+        return client, gpt_model, gpt_model_sm, provider, supports_json_response_format
+
+    api_key = os.environ.get('OPENAI_API_KEY')
+    client = OpenAI(api_key=api_key) if api_key else OpenAI()
+    print(f'USING GPT CLIENT: OPENAI model={gpt_model}')
+    return client, gpt_model, gpt_model_sm, provider, supports_json_response_format
+
+
+gpt_client, GPT_MODEL, GPT_MODEL_SM, LLM_PROVIDER, LLM_SUPPORTS_JSON_RESPONSE_FORMAT = _build_llm_client()
+
+
+def create_chat_completion(model, messages, max_tokens, temperature=0, top_p=1, n=1, stop=None, require_json=False):
+    kwargs = {
+        'model': model,
+        'max_tokens': max_tokens,
+        'messages': messages,
+        'temperature': temperature,
+        'top_p': top_p,
+        'n': n,
+    }
+    if stop is not None:
+        kwargs['stop'] = stop
+
+    use_response_format = require_json and LLM_SUPPORTS_JSON_RESPONSE_FORMAT
+    if use_response_format:
+        kwargs['response_format'] = {"type": "json_object"}
+
+    try:
+        return gpt_client.chat.completions.create(**kwargs)
+    except Exception as e:
+        if use_response_format:
+            print("[WARNING] JSON response_format not supported by current LLM backend, retrying without it.")
+            print(e)
+            kwargs.pop('response_format', None)
+            return gpt_client.chat.completions.create(**kwargs)
+        raise
 
 
 
@@ -1183,14 +1264,14 @@ class LLMAgentForConversation(LLMAgentBase):
         }
 
         try:
-            ans = gpt_client.chat.completions.create(
+            ans = create_chat_completion(
                 model=GPT_MODEL_SM,
                 max_tokens=80,
                 messages=[msg_sys, msg_user],
                 temperature=0,
                 top_p=1,
                 n=1,
-                response_format={"type": "json_object"},
+                require_json=True,
             )
             raw = ans.choices[0].message.content
             parsed = self.parse_json_response(raw)
@@ -1501,18 +1582,18 @@ class LLMAgentForConversation(LLMAgentBase):
         }
 
         try:
-            ans = gpt_client.chat.completions.create(
+            ans = create_chat_completion(
                 model=GPT_MODEL,
                 max_tokens=OUTPUT_TOKEN_LIMIT_CHAT,
                 messages=[msg_sys] + msg_hist + [msg_last],
                 temperature=0.3,
                 top_p=1,
                 n=1,
-                response_format={"type": "json_object"},
+                require_json=True,
             )
 
             raw_res = ans.choices[0].message.content
-            token_output = ans.usage.completion_tokens
+            token_output = getattr(getattr(ans, 'usage', None), 'completion_tokens', 0) or 0
             end_reason = ans.choices[0].finish_reason
         except Exception as e:
             print("[ERROR][LLMAgentForConversation][gpt_client completion]")
@@ -1888,10 +1969,10 @@ class LLMAgentForConversation(LLMAgentBase):
 
 
         try:
-            ans = gpt_client.chat.completions.create(
+            ans = create_chat_completion(
                 model=GPT_MODEL_SM,
                 max_tokens=32,
-                stop = ["\n"],
+                stop=["\n"],
                 messages=[msg_sys] + [msg_last],
                 temperature=0,
                 top_p=1,

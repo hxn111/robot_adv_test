@@ -2,3 +2,7 @@
 .env
 
 
+# IDE files
+.vscode/
+.codex
+__pycache__/

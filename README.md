@@ -18,6 +18,11 @@ To test:
 python test_llm.py --group-size [number/unknown]
 ```
 
+To start a local vLLM server and launch the CLI test harness in one step:
+```
+./scripts/run_local_test_llm.sh --group-size unknown
+```
+
 ## Experiment Conditions + Strategy Gating
 Condition definitions are in `strategy_conditions.py`:
 1. `1`: baseline + single robot

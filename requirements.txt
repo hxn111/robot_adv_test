@@ -4,3 +4,4 @@ theine
 requests
 tzdata
 redis[hiredis]
+vllm
