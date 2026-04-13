@@ -1,7 +1,8 @@
 python-dotenv
-openai==1.69.0
 theine
 requests
 tzdata
 redis[hiredis]
-vllm
+openai==1.69.0
+vllm==0.19.0
+transformers==4.57.6

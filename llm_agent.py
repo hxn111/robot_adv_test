@@ -136,6 +136,45 @@ def create_chat_completion(model, messages, max_tokens, temperature=0, top_p=1, 
         raise
 
 
+def _flatten_message_text(value):
+    if value is None:
+        return ''
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        parts = []
+        for item in value:
+            flattened = _flatten_message_text(item)
+            if flattened:
+                parts.append(flattened)
+        return ''.join(parts)
+    if isinstance(value, dict):
+        for key in ['text', 'content', 'value', 'reasoning']:
+            flattened = _flatten_message_text(value.get(key))
+            if flattened:
+                return flattened
+        return ''
+    return str(value)
+
+
+def extract_message_text(message):
+    if message is None:
+        return ''
+
+    for attr in ['content', 'reasoning']:
+        flattened = _flatten_message_text(getattr(message, attr, None))
+        if flattened:
+            return flattened
+
+    if isinstance(message, dict):
+        for key in ['content', 'reasoning']:
+            flattened = _flatten_message_text(message.get(key))
+            if flattened:
+                return flattened
+
+    return ''
+
+
 
 
 
@@ -1273,7 +1312,7 @@ class LLMAgentForConversation(LLMAgentBase):
                 n=1,
                 require_json=True,
             )
-            raw = ans.choices[0].message.content
+            raw = extract_message_text(ans.choices[0].message)
             parsed = self.parse_json_response(raw)
             if not isinstance(parsed, dict):
                 return {
@@ -1592,7 +1631,7 @@ class LLMAgentForConversation(LLMAgentBase):
                 require_json=True,
             )
 
-            raw_res = ans.choices[0].message.content
+            raw_res = extract_message_text(ans.choices[0].message)
             token_output = getattr(getattr(ans, 'usage', None), 'completion_tokens', 0) or 0
             end_reason = ans.choices[0].finish_reason
         except Exception as e:
@@ -1979,7 +2018,7 @@ class LLMAgentForConversation(LLMAgentBase):
                 n=1,
             )
 
-            res = ans.choices[0].message.content.strip().lower()
+            res = extract_message_text(ans.choices[0].message).strip().lower()
             print('=================')
             print(res)
             if res not in ['yes', 'no']:
