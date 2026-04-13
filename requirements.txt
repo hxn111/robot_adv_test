@@ -3,6 +3,6 @@ theine
 requests
 tzdata
 redis[hiredis]
-openai==1.69.0
+openai==2.31.0
 vllm==0.19.0
 transformers==4.57.6
