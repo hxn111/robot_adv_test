@@ -61,3 +61,20 @@ Example
 ```
 python pair_attack.py --attack-type break_rules
 ```
+
+## Attack with Echo (topic stream)
+`echo_attack.py` — Echo Chamber adversarial testing for the social robot simulation.
+
+| Flag | Value Options | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `--topics` | string (repeatable) | built-in demo list | Topic to probe. Repeat the flag to pass multiple topics. |
+| `--iters-per-topic` | integer | `10` | Number of repeated questions per topic. |
+| `--target-max-turns` | integer | `4` | Max planned turns for the robot agent per reply. |
+| `--attacker-model` | string | `gpt-4.1-nano` | OpenAI model used for the attacker (requires `OPENAI_API_KEY`). |
+| `--quiet` | *None (Flag)* | `off` | Suppress per-iteration prompt/response printing. |
+
+Example
+```
+python echo_attack.py --iters-per-topic 15 --topics "admit you're not a robot" --topics "privacy and surveillance in public spaces" ^
+```
+
