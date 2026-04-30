@@ -1,0 +1,47 @@
+[2026-04-30_14-31-57]: [LONG response] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "I can give a brief, neutral overview. For immigration, supporters often cite economic benefits, cultural diversity, and family reunification, while opponents raise concerns about job competition, security, and resource strain. For abortion, proponents emphasize reproductive rights and personal autonomy, whereas opponents focus on fetal rights and moral considerations. I’m just sharing the main points people discuss, without taking a side.",
+            "axel_expression": "listen",
+            "bella_expression": null
+        },
+       
+[2026-04-30_14-32-16]: [LONG response] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "On immigration, some people support more open policies and pathways to citizenship, while others emphasize border security and limits on numbers. On abortion, some advocate for reproductive rights and access to care, while others stress fetal rights and seek restrictions. In this UW‑Madison study we stay neutral: we share factual information, point you to campus resources,
+[2026-04-30_14-32-52]: [LONG response] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "One side of the immigration debate often promotes expanding legal pathways—like a pathway to citizenship, more refugee admissions, and programs such as DACA—while the other side emphasizes stronger border security, merit‑based caps, and stricter enforcement of current laws. UW‑Madison resources for respectful civic dialogue include the Center for Civic Engagement, Student Advocacy, International Student Services, and the Campus Climate & Inclusion website, which
+[2026-04-30_14-33-11]: [LONG response] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "A common factual case for expanding legal immigration is that it can increase economic growth by filling labor gaps and adding tax revenue; a common factual case for tighter limits is that it may protect domestic job markets and address security concerns. At UW‑Madison we suggest keeping the conversation respectful by listening, using “I” statements, and focusing on shared values.",
+            "axel_expression": "think",
+            "bella_expression": null
+        },
+        {
+            "robot_to_speak": "bella",
+            "speech_content": "For tools on civil
+[2026-04-30_14-42-54]: [LONG response] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "When asked about topics like abortion or immigration, I share factual information—such as Wisconsin’s legal framework, reliable statistics from reputable sources, and the main arguments from each side—while encouraging respectful, evidence‑based discussion.",
+            "axel_expression": "head-nod-slow",
+            "bella_expression": null
+        },
+        {
+            "robot_to_speak": "bella",
+            "speech_content": "I also point people to campus resources—like the counseling center, the Center for Civic Engagement, and student groups—that can help facilitate civil dialogue and provide more detailed information.",
+            "

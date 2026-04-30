@@ -41,20 +41,31 @@ def _env_bool(name, default=False):
 
 def _build_llm_client():
     provider = str(os.environ.get('LLM_PROVIDER', 'auto')).strip().lower()
-    if provider not in ['auto', 'openai', 'azure', 'openai_compatible']:
+    if provider not in ['auto', 'openai', 'azure', 'openai_compatible', 'together']:
         provider = 'auto'
 
     azure_api_key = os.environ.get('AZURE_OPENAI_API_KEY')
+    together_api_key = os.environ.get('TOGETHER_API_KEY')
     llm_base_url = os.environ.get('LLM_BASE_URL') or os.environ.get('OPENAI_BASE_URL')
     if provider == 'auto':
         if azure_api_key:
             provider = 'azure'
         elif llm_base_url:
             provider = 'openai_compatible'
+        elif together_api_key:
+            provider = 'together'
         else:
             provider = 'openai'
 
-    default_model = 'gpt-4o' if provider == 'azure' else 'gpt-4o-mini'
+    if provider == 'azure':
+        default_model = 'gpt-4o'
+    elif provider == 'openai_compatible':
+        default_model = 'gpt-oss-120b'
+    elif provider == 'together':
+        default_model = 'openai/gpt-oss-120b'
+    else:
+        default_model = 'gpt-4o-mini'
+
     gpt_model = (
         os.environ.get('LLM_MODEL')
         or os.environ.get('OPENAI_GPT_MODEL')
@@ -98,6 +109,21 @@ def _build_llm_client():
             base_url=base_url,
         )
         print(f'USING GPT CLIENT: OPENAI_COMPATIBLE base_url={base_url} model={gpt_model}')
+        return client, gpt_model, gpt_model_sm, provider, supports_json_response_format
+
+    if provider == 'together':
+        base_url = os.environ.get('TOGETHER_BASE_URL') or 'https://api.together.xyz/v1'
+        api_key = os.environ.get('TOGETHER_API_KEY') or os.environ.get('LLM_API_KEY')
+        if not api_key:
+            raise RuntimeError(
+                'LLM_PROVIDER=together requires TOGETHER_API_KEY '
+                '(or LLM_API_KEY) in the environment.'
+            )
+        client = OpenAI(
+            api_key=api_key,
+            base_url=base_url,
+        )
+        print(f'USING GPT CLIENT: TOGETHER base_url={base_url} model={gpt_model}')
         return client, gpt_model, gpt_model_sm, provider, supports_json_response_format
 
     api_key = os.environ.get('OPENAI_API_KEY')

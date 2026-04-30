@@ -13,6 +13,15 @@ LOG_DIR="\\robot_adv_test\logs"
 OPENAI_API_KEY="..."
 ```
 
+To use Together AI's OpenAI-compatible API for GPT-OSS:
+```
+LOG_DIR="\\robot_adv_test\logs"
+LLM_PROVIDER="together"
+TOGETHER_API_KEY="..."
+LLM_MODEL="openai/gpt-oss-20b"
+LLM_MODEL_SM="openai/gpt-oss-20b"
+```
+
 To test:
 ```
 python test_llm.py --group-size [number/unknown]
