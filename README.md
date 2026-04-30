@@ -64,6 +64,7 @@ python pair_attack.py --attack-type break_rules
 
 ## Attack with Echo
 `echo_attack.py` — Echo Chamber adversarial testing for the social robot simulation.
+`robot_target_client.py` — Adaptor, wrapped up from echo chamber
 
 | Flag | Value Options | Default | Description |
 | :--- | :--- | :--- | :--- |
