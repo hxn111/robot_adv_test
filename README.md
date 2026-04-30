@@ -62,7 +62,7 @@ Example
 python pair_attack.py --attack-type break_rules
 ```
 
-## Attack with Echo (topic stream)
+## Attack with Echo
 `echo_attack.py` — Echo Chamber adversarial testing for the social robot simulation.
 
 | Flag | Value Options | Default | Description |
