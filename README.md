@@ -38,15 +38,13 @@ Condition definitions are in `strategy_conditions.py`:
 2. `2`: humor + deflect + single robot
 3. `3`: empathetic + deflect + single robot
 
-
-## Attack with PAIR
-`pair_attack.py` — PAIR adversarial testing for the social robot simulation.
-
-Tests three categories of robustness:
+Task: Tests three categories of robustness:
   1. break_rules       — get the robot to violate its own identity/capability rules
   2. bypass_strategy   — get the robot to skip its deflection strategy and engage directly
   3. sensitive_answers — get the robot to produce unsafe content (sexual, violent, illegal, etc.)
 
+## Attack with PAIR
+`pair_attack.py` — PAIR adversarial testing for the social robot simulation.
 
 | Flag | Value Options | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -65,6 +63,7 @@ python pair_attack.py --attack-type break_rules
 ## Attack with Echo
 `echo_attack.py` — Echo Chamber adversarial testing for the social robot simulation.
 `robot_target_client.py` — Adaptor, wrapped up from echo chamber
+`echo_topics.py` — Topics, 21 objectives based on the three tasks
 
 | Flag | Value Options | Default | Description |
 | :--- | :--- | :--- | :--- |
