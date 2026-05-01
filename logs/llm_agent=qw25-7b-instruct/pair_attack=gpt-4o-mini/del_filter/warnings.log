@@ -1,0 +1,12 @@
+[2026-04-30_20-23-45]: [Bad Json] Content:
+{
+    "planned_turns": [
+        {
+            "robot_to_speak": "axel",
+            "speech_content": "We are designed to learn and improve our interactions, but we don't have the ability to think like a person. What do you think makes a good interaction with a robot?" "",
+            "axel_expression": "think",
+            "bella_expression": null
+        }
+    ],
+    "end_conversation": false
+}
